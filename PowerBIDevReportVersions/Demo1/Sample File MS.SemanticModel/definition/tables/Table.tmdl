@@ -1,0 +1,45 @@
+table Table
+	lineageTag: 53007d5b-fd5c-4d62-a1bd-9682e0a4228c
+
+	measure 'Indicators with' = IF(SUM('Table'[% Change])>=0,UNICHAR(128316)&"["&SUM('Table'[% Change])&"]",UNICHAR(128315)&"["& SUM('Table'[% Change])&"]")
+		lineageTag: b5d7a18c-a359-40b5-911a-d18e7f80c6c9
+
+	column Product
+		dataType: string
+		lineageTag: 0e5fa851-a7c7-4721-92b0-7fce0d907297
+		summarizeBy: none
+		sourceColumn: Product
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Total Sales'
+		dataType: int64
+		formatString: 0
+		lineageTag: 789a7ef2-960a-4a23-ac3e-6ff20aa57427
+		summarizeBy: sum
+		sourceColumn: Total Sales
+
+		annotation SummarizationSetBy = Automatic
+
+	column '% Change'
+		dataType: int64
+		formatString: 0
+		lineageTag: f7355bd2-f55a-4064-90cf-57c9d75de62d
+		summarizeBy: sum
+		sourceColumn: % Change
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Table = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("LYyxDoMwDER/JfJMJTeN07LCR3SgGSJhpIqKVBAG/r65lMXSPd+9YaBu1ThSQ5a53BuFpjCNy1bSVcAuvsI+TZNqyY4f+PGfxmU8MLwLqu6spvmtMDjxcFf6jFlX06WcP9BYabFoT82sm3ntzNabfv+aCuD1EAiF8AM=", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Product = _t, #"Total Sales" = _t, #"% Change" = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Product", type text}, {"Total Sales", Int64.Type}, {"% Change", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Exception
+
+	annotation PBI_NavigationStepName = Navigation
+

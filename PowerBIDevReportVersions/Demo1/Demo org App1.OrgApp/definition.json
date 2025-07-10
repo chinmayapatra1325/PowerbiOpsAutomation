@@ -1,0 +1,35 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/orgapp/definition/orgAppDefinition/1.0.0/schema.json",
+  "settings": {
+    "theme": {
+      "background": "#7af6f6",
+      "foreground": "#242424",
+      "backgroundHover": "#95f8f8",
+      "backgroundSelected": "#affafa",
+      "backgroundPressed": "#cafbfb"
+    },
+    "experienceSettings": {
+      "navigationPane": {
+        "isHidden": false,
+        "isCollapsed": false,
+        "independentPageNavigation": false
+      }
+    }
+  },
+  "elements": [
+    {
+      "elementType": "item",
+      "elementId": "2fc0c80f-e1f7-4f8c-ab08-e9fb9dbc5f19",
+      "itemType": "Report",
+      "itemLogicalId": "47752d65-6867-89f6-4e4c-c928861e16dc",
+      "displayName": "Sample File MS"
+    },
+    {
+      "elementType": "item",
+      "elementId": "58940435-7dff-4557-9f70-91199c1340f8",
+      "itemType": "SemanticModel",
+      "itemLogicalId": "3708543a-86fa-aa2d-48b9-ed92e89f4d3e",
+      "displayName": "2fc0c80f-e1f7-4f8c-ab08-e9fb9dbc5f19"
+    }
+  ]
+}
