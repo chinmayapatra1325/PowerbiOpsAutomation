@@ -1,0 +1,24 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "name": "LoadOrdersTable",
+        "type": "RefreshDataflow",
+        "dependsOn": [],
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureOutput": false,
+          "secureInput": false
+        },
+        "typeProperties": {
+          "dataflowId": "0b90098d-eeb5-46dc-b826-9fa7b0e4ef3f",
+          "workspaceId": "621b1cff-4fcd-4488-8ce5-369288953c4d",
+          "notifyOption": "NoNotification",
+          "dataflowType": "Dataflow-Gen2"
+        }
+      }
+    ]
+  }
+}
